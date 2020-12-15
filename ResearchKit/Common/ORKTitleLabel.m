@@ -42,7 +42,13 @@
 + (UIFont *)defaultFont {
     UIFontTextStyle style = ORKTitleLabelFontTextStyleForWindow([UIView new].window);
     UIFontDescriptor *descriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:style];
+
+    if (@available(iOS 13.0, *)) {
+        descriptor = [descriptor fontDescriptorWithDesign: UIFontDescriptorSystemDesignRounded];
+    }
+
     UIFontDescriptor *fontDescriptor = [descriptor fontDescriptorWithSymbolicTraits:style == UIFontTextStyleTitle1 ? (UIFontDescriptorTraitBold | UIFontDescriptorTraitTightLeading) : (UIFontDescriptorTraitBold)];
+
     return [UIFont fontWithDescriptor:fontDescriptor size:0];
 }
 

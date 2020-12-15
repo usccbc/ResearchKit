@@ -40,8 +40,14 @@
 }
 
 + (UIFont *)defaultFont {
-    UIFontDescriptor *descriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
-    return [UIFont systemFontOfSize:[[descriptor objectForKey: UIFontDescriptorSizeAttribute] doubleValue]];
+    UIFontDescriptor *descriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle: UIFontTextStyleBody];
+    UIFont *font = [UIFont systemFontOfSize:[[descriptor objectForKey: UIFontDescriptorSizeAttribute] doubleValue]];
+    
+    if (@available(iOS 13.0, *)) {
+        descriptor = [font.fontDescriptor fontDescriptorWithDesign: UIFontDescriptorSystemDesignRounded];
+    }
+
+    return [UIFont fontWithDescriptor:descriptor size: font.pointSize];
 }
 
 @end
