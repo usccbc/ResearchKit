@@ -137,7 +137,7 @@ static NSMutableDictionary *colors() {
         UIColor *backgroundColor;
         if (@available(iOS 13.0, *)) {
             // [UIColor secondarySystemBackgroundColor];
-            backgroundColor = [UIColor colorWithRed:25.0 / 255.0 green:26.0 / 255.0 blue:28.0 / 255.0 alpha:1.0];
+            backgroundColor = [UIColor colorWithRed:23.0 / 255.0 green:23.0 / 255.0 blue:28.0 / 255.0 alpha:1.0];
         } else {
             backgroundColor = [UIColor colorWithRed:239.0 / 255.0 green:239.0 / 255.0 blue:244.0 / 255.0 alpha:1.0];
         }

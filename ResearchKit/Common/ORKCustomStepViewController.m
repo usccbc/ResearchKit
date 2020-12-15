@@ -69,6 +69,7 @@
         [_containerView setPinNavigationContainer:self.customStep.pinNavigationContainer];
         [_containerView setCustomContentView:[self customStep].contentView withTopPadding:0.0 sidePadding:0.0];
         [_containerView setUseExtendedPadding:self.step.useExtendedPadding];
+
         [self.view addSubview:_containerView];
         [self setupConstraints];
     }
@@ -154,6 +155,7 @@
     [_containerView.navigationFooterView updateContinueAndSkipEnabled];
     [_containerView.navigationFooterView setUseExtendedPadding:[self.step useExtendedPadding]];
     [_containerView.navigationFooterView setOptional:self.step.isOptional];
+
 }
 
 - (void)setContinueButtonItem:(UIBarButtonItem *)continueButtonItem {

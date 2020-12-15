@@ -32,6 +32,7 @@
 
 import ResearchKit
 import AudioToolbox
+import SwiftUI
 
 /**
     Wraps a SystemSoundID.
@@ -117,7 +118,8 @@ enum TaskListRow: Int, CustomStringConvertible {
     case contrastSensitivityPeakLandoltC
     case videoInstruction
     case webView
-    
+    case customView
+
     class TaskListRowSection {
         var title: String
         var rows: [TaskListRow]
@@ -136,7 +138,8 @@ enum TaskListRow: Int, CustomStringConvertible {
                 [
                     .form,
                     .groupedForm,
-                    .survey
+                    .survey,
+                    .customView
                 ]),
             TaskListRowSection(title: "Survey Questions", rows:
                 [
@@ -380,6 +383,9 @@ enum TaskListRow: Int, CustomStringConvertible {
 
         case .webView:
             return NSLocalizedString("Web View", comment: "")
+
+        case .customView:
+            return NSLocalizedString("Custom View", comment: "")
         }
     }
     
@@ -580,6 +586,10 @@ enum TaskListRow: Int, CustomStringConvertible {
         // Web view tasks.
         case webViewTask
         case webViewStep
+
+        case customTask
+        case customStep
+
     }
     
     // MARK: Properties
@@ -757,6 +767,9 @@ enum TaskListRow: Int, CustomStringConvertible {
             
         case .webView:
             return webView
+
+        case .customView:
+            return customView
         }
     }
 
@@ -1853,6 +1866,92 @@ enum TaskListRow: Int, CustomStringConvertible {
         return ORKOrderedTask(identifier: String(describing: Identifier.webViewTask), steps: [webViewStep])
     }
     
+
+    /// This task presents a web view step
+    private var customView: ORKTask {
+
+        struct DiscView: View {
+            var body: some View {
+                if #available(iOS 14.0, *) {
+                    ZStack {
+                        Color(ORKColor(ORKBackgroundColorKey)).edgesIgnoringSafeArea(.all)
+
+                        VStack {
+                            Text("Hello World")
+                            Spacer()
+                        }
+                    }
+                } else {
+                    fatalError()
+                }
+            }
+        }
+
+        class ORKCustomViewController: ORKCustomStepViewController {
+            private let rootView = DiscView()
+
+            lazy var hostingVC: UIHostingController<DiscView> = {
+                let vc = UIHostingController(rootView: rootView)
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
+
+                addChild(vc)
+                return vc
+            }()
+
+            var contentView: UIView {
+                hostingVC.view
+            }
+
+            override init(step: ORKStep?) {
+                super.init(step: step)
+            }
+
+            override func viewWillAppear(_ animated: Bool) {
+                super.viewWillAppear(animated)
+            }
+
+            required init?(coder: NSCoder) {
+                fatalError("init(coder:) has not been implemented")
+            }
+
+            override func stepDidChange() {
+                super.stepDidChange()
+                self.skipButtonTitle = "Skip"
+            }
+        }
+
+        class ORKTestCustomStep: ORKCustomStep {
+            lazy var customVC: ORKCustomViewController = {
+                self.isOptional = true
+
+                let vc = ORKCustomViewController(step: self)
+                return vc
+            }()
+
+            deinit {
+                print("deinit")
+            }
+
+            override init(identifier: String) {
+                super.init(identifier: identifier)
+            }
+
+            required init(coder aDecoder: NSCoder) {
+                fatalError("init(coder:) has not been implemented")
+            }
+
+            override func instantiateStepViewController(with result: ORKResult) -> ORKStepViewController {
+                self.contentView = customVC.contentView
+                return customVC
+            }
+        }
+
+        let customViewStep = ORKTestCustomStep(identifier: String(describing: Identifier.customStep))
+        customViewStep.isOptional = true
+
+        return ORKOrderedTask(identifier: String(describing: Identifier.customTask), steps: [customViewStep])
+    }
+
     // MARK: Consent Document Creation Convenience
     
     /**
