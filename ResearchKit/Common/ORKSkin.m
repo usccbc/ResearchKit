@@ -142,7 +142,7 @@ static NSMutableDictionary *colors() {
             backgroundColor = [UIColor colorWithRed:239.0 / 255.0 green:239.0 / 255.0 blue:244.0 / 255.0 alpha:1.0];
         }
 
-        UIColor *groupedBackgroundColor = [UIColor colorWithRed:34.0 / 255.0 green:35.0 / 255.0 blue:42.0 / 255.0 alpha:1.0];
+        UIColor *groupedBackgroundColor = [UIColor colorWithRed:23.0 / 255.0 green:23.0 / 255.0 blue:28.0 / 255.0 alpha:1.0];
 
         colors = [@{
                     ORKSignatureColorKey: ORKRGB(0x000000),
