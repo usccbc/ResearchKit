@@ -33,6 +33,8 @@
 
 #import "ORKHelpers_Internal.h"
 
+NSString *const ORKGroupBackgroundColorKey = @"ORKGroupBackgroundColorKey";
+
 
 NSString *const ORKSignatureColorKey = @"ORKSignatureColorKey";
 NSString *const ORKBackgroundColorKey = @"ORKBackgroundColorKey";
@@ -134,13 +136,17 @@ static NSMutableDictionary *colors() {
     dispatch_once(&onceToken, ^{
         UIColor *backgroundColor;
         if (@available(iOS 13.0, *)) {
-            backgroundColor = [UIColor secondarySystemBackgroundColor];
+            // [UIColor secondarySystemBackgroundColor];
+            backgroundColor = [UIColor colorWithRed:25.0 / 255.0 green:26.0 / 255.0 blue:28.0 / 255.0 alpha:1.0];
         } else {
             backgroundColor = [UIColor colorWithRed:239.0 / 255.0 green:239.0 / 255.0 blue:244.0 / 255.0 alpha:1.0];
         }
 
+        UIColor *groupedBackgroundColor = [UIColor colorWithRed:34.0 / 255.0 green:35.0 / 255.0 blue:42.0 / 255.0 alpha:1.0];
+
         colors = [@{
                     ORKSignatureColorKey: ORKRGB(0x000000),
+                    ORKGroupBackgroundColorKey: groupedBackgroundColor,
                     ORKBackgroundColorKey: backgroundColor,
                     ORKConsentBackgroundColorKey: ORKRGB(0xffffff),
                     ORKToolBarTintColorKey: ORKRGB(0xffffff),

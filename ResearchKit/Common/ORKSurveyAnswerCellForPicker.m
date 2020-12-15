@@ -37,6 +37,7 @@
 #import "ORKQuestionStep_Internal.h"
 #import "ORKAnswerFormat_Internal.h"
 #import "ORKHelpers_Internal.h"
+#import "ORKSkin.h"
 
 static const CGFloat DividerViewTopPadding = 10.0;
 static const CGFloat DontKnowButtonTopBottomPadding = 16.0;
@@ -70,7 +71,7 @@ static const CGFloat DontKnowButtonBottomPaddingOffset = 10.0;
         _picker = [ORKPicker pickerWithAnswerFormat:[self.step impliedAnswerFormat] answer:self.answer delegate:self];
 
         if (@available(iOS 13.0, *)) {
-            _picker.pickerView.backgroundColor = UIColor.secondarySystemGroupedBackgroundColor;
+            _picker.pickerView.backgroundColor = ORKColor(ORKGroupBackgroundColorKey);
         }
         
         [self.picker pickerWillAppear];

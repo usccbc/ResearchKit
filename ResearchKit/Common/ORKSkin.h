@@ -39,6 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 ORK_EXTERN NSString *const ORKToolBarTintColorKey;
 
 /// Color used for view's backgroud
+ORK_EXTERN NSString *const ORKGroupBackgroundColorKey;
+
+/// Color used for view's backgroud
 ORK_EXTERN NSString *const ORKBackgroundColorKey;
 
 /// Color used for consent view's backgroud

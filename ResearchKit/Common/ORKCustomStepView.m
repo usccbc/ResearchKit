@@ -287,7 +287,7 @@
 
         UIColor *fillColor;
         if (@available(iOS 13.0, *)) {
-            fillColor = UIColor.secondarySystemGroupedBackgroundColor;
+            fillColor = ORKColor(ORKGroupBackgroundColorKey);
         } else {
             fillColor = [UIColor ork_borderGrayColor];
         }
@@ -295,7 +295,7 @@
         
         CAShapeLayer *foreLayer = [CAShapeLayer layer];
         if (@available(iOS 13.0, *)) {
-            [foreLayer setFillColor:[[UIColor secondarySystemGroupedBackgroundColor] CGColor]];
+            [foreLayer setFillColor:[ORKColor(ORKGroupBackgroundColorKey) CGColor]];
         } else {
             [foreLayer setFillColor:[[UIColor whiteColor] CGColor]];
         }

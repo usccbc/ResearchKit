@@ -109,7 +109,7 @@ static const float ReviewQuestionAnswerPadding = 2.0;
     UIColor *fillColor;
     UIColor *borderColor;
     if (@available(iOS 13.0, *)) {
-        fillColor = [UIColor secondarySystemGroupedBackgroundColor];
+        fillColor = ORKColor(ORKGroupBackgroundColorKey);
         borderColor = UIColor.separatorColor;
     } else {
         fillColor = [UIColor ork_borderGrayColor];
@@ -236,7 +236,7 @@ static const float ReviewQuestionAnswerPadding = 2.0;
     UIColor *borderColor;
     
     if (@available(iOS 13.0, *)) {
-        fillColor = [UIColor secondarySystemGroupedBackgroundColor];
+        fillColor = ORKColor(ORKGroupBackgroundColorKey);
         borderColor = UIColor.separatorColor;
     } else {
         fillColor = [UIColor whiteColor];

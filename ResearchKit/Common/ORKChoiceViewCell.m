@@ -87,7 +87,7 @@ static const CGFloat LabelCheckViewPadding = 10.0;
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
     [super traitCollectionDidChange:previousTraitCollection];
     if (@available(iOS 13.0, *)) {
-        _fillColor = [UIColor secondarySystemGroupedBackgroundColor];
+        _fillColor = ORKColor(ORKGroupBackgroundColorKey);
         // FIXME:- dark mode color displays solid black after animation ends if the views are stacked
         if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
             _fillColor = [UIColor colorWithRed:0.173 green:0.173 blue:0.180 alpha:1.0];
@@ -109,10 +109,10 @@ static const CGFloat LabelCheckViewPadding = 10.0;
         _contentMaskLayer = [[CAShapeLayer alloc] init];
         UIColor *borderColor;
         if (@available(iOS 13.0, *)) {
-            _fillColor = [UIColor secondarySystemGroupedBackgroundColor];
+            _fillColor = ORKColor(ORKGroupBackgroundColorKey);
             // FIXME:- dark mode color displays solid black after animation ends if the views are stacked
             if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                _fillColor = [UIColor colorWithRed:0.173 green:0.173 blue:0.180 alpha:1.0];
+                _fillColor = ORKColor(ORKGroupBackgroundColorKey);
             }
             borderColor = UIColor.separatorColor;
         } else {
@@ -544,7 +544,7 @@ static const CGFloat LabelCheckViewPadding = 10.0;
         _textView.delegate = self;
         _textView.translatesAutoresizingMaskIntoConstraints = NO;
         if (@available(iOS 13.0, *)) {
-            _textView.backgroundColor = [UIColor secondarySystemGroupedBackgroundColor];
+            _textView.backgroundColor = ORKColor(ORKGroupBackgroundColorKey);
         }
         [self.containerView addSubview:_textView];
         [self updateTextView];
