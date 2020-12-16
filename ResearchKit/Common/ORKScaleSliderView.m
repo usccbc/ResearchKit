@@ -225,9 +225,13 @@ static const CGFloat kMargin = 25.0;
     _valueLabel = [[ORKScaleValueLabel alloc] initWithFrame:CGRectZero];
     _valueLabel.text = @"";
     _valueLabel.textAlignment = NSTextAlignmentCenter;
-    UIFontDescriptor *valueLabelDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleTitle2];
-    UIFontDescriptor *valueLabelFontDescriptor = [valueLabelDescriptor fontDescriptorWithSymbolicTraits:(UIFontDescriptorTraitBold)];
-    [_valueLabel setFont: [UIFont fontWithDescriptor:valueLabelFontDescriptor size:[[valueLabelFontDescriptor objectForKey: UIFontDescriptorSizeAttribute] doubleValue] - 4.0]];
+
+//    UIFontDescriptor *valueLabelDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleTitle2];
+//    UIFontDescriptor *valueLabelFontDescriptor = [valueLabelDescriptor fontDescriptorWithSymbolicTraits:(UIFontDescriptorTraitBold)];
+//    [_valueLabel setFont: [UIFont fontWithDescriptor:valueLabelFontDescriptor size:[[valueLabelFontDescriptor objectForKey: UIFontDescriptorSizeAttribute] doubleValue] - 4.0]];
+
+    _valueLabel.font = [UIFont systemFontOfSize:16 weight: UIFontWeightMedium];
+
     [_valueLabel setTextColor:[UIColor systemBlueColor]];
 }
 
