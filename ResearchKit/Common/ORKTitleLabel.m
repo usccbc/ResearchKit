@@ -49,7 +49,7 @@
 
     UIFontDescriptor *fontDescriptor = [descriptor fontDescriptorWithSymbolicTraits:style == UIFontTextStyleTitle1 ? (UIFontDescriptorTraitBold | UIFontDescriptorTraitTightLeading) : (UIFontDescriptorTraitBold)];
 
-    return [UIFont fontWithDescriptor:fontDescriptor size:0];
+    return [UIFont fontWithDescriptor:fontDescriptor size: 26];
 }
 
 @end

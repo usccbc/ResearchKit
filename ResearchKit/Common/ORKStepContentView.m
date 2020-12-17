@@ -431,6 +431,8 @@ typedef NS_CLOSED_ENUM(NSInteger, ORKUpdateConstraintSequence) {
     _textLabel.textAlignment = _stepHeaderTextAlignment;
     _textLabel.numberOfLines = 0;
     _textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    _textLabel.textColor = [UIColor colorWithRed:174 / 255.0 green:178 / 255.0 blue:198 / 255.0 alpha:1];
+
     [self addSubview:_textLabel];
     [self setupTextLabelConstraints];
     [self setContainerLeftRightConstraints];
@@ -527,6 +529,7 @@ typedef NS_CLOSED_ENUM(NSInteger, ORKUpdateConstraintSequence) {
     _detailTextLabel.textAlignment = _stepHeaderTextAlignment;
     _detailTextLabel.numberOfLines = 0;
     _detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    _detailTextLabel.textColor = [UIColor colorWithRed:174 / 255.0 green:178 / 255.0 blue:198 / 255.0 alpha:1];
     [self addSubview:_detailTextLabel];
     [self setupDetailTextLabelConstraints];
     [self setContainerLeftRightConstraints];

@@ -841,7 +841,7 @@ enum TaskListRow: Int, CustomStringConvertible {
         learnMoreInstructionStep01.title = NSLocalizedString("Learn more title", comment: "")
         learnMoreInstructionStep01.text = NSLocalizedString("Learn more text", comment: "")
         let learnMoreItem01 = ORKLearnMoreItem(text: nil, learnMoreInstructionStep: learnMoreInstructionStep01)
-        let section01 = ORKFormItem(sectionTitle: NSLocalizedString("Section title", comment: ""), detailText: NSLocalizedString("Section detail text", comment: ""), learnMoreItem: learnMoreItem01, showsProgress: true)
+        let section01 = ORKFormItem(sectionTitle: NSLocalizedString("Section title", comment: ""), detailText: NSLocalizedString("Section detail text", comment: ""), learnMoreItem: learnMoreItem01, showsProgress: false)
         
         // A first field, for entering an integer.
         let formItem01Text = NSLocalizedString("Field01", comment: "")
@@ -861,7 +861,7 @@ enum TaskListRow: Int, CustomStringConvertible {
         //Start of section for scale question
         let formItem03Text = NSLocalizedString(exampleQuestionText, comment: "")
         let scaleAnswerFormat = ORKContinuousScaleAnswerFormat(maximumValue: 10, minimumValue: 0, defaultValue: 0.0, maximumFractionDigits: 1)//ORKScaleAnswerFormat(maximumValue: 10, minimumValue: 0, defaultValue: 0, step: 1)
-        let formItem03 = ORKFormItem(identifier: String(describing: Identifier.formItem03), text: formItem03Text, detailText: nil, learnMoreItem: nil, showsProgress: true, answerFormat: scaleAnswerFormat, tagText: nil, optional: true)
+        let formItem03 = ORKFormItem(identifier: String(describing: Identifier.formItem03), text: formItem03Text, detailText: nil, learnMoreItem: nil, showsProgress: false, answerFormat: scaleAnswerFormat, tagText: nil, optional: true)
        
         step.formItems = [
             section01,
