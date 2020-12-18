@@ -53,6 +53,7 @@ ORK_CLASS_AVAILABLE
 @interface ORKReactionTimeResult: ORKResult
 
 @property (nonatomic, assign) NSTimeInterval timestamp;
+@property (nonatomic, assign) NSTimeInterval elapsedTime;
 
 @property (nonatomic, strong) ORKFileResult *fileResult;
 

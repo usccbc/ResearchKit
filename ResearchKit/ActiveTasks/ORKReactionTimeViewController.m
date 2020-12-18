@@ -98,6 +98,7 @@ static const NSTimeInterval OutcomeAnimationDuration = 0.3;
         if (_validResult) {
             ORKReactionTimeResult *reactionTimeResult = [[ORKReactionTimeResult alloc] initWithIdentifier:self.step.identifier];
             reactionTimeResult.timestamp = _stimulusTimestamp;
+            reactionTimeResult.elapsedTime = [NSProcessInfo processInfo].systemUptime - _stimulusTimestamp;
             [_results addObject:reactionTimeResult];
         }
         [self attemptDidFinish];

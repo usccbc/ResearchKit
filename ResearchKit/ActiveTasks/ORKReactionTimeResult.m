@@ -42,12 +42,14 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [super encodeWithCoder:aCoder];
     ORK_ENCODE_DOUBLE(aCoder, timestamp);
+    ORK_ENCODE_DOUBLE(aCoder, elapsedTime);
     ORK_ENCODE_OBJ(aCoder, fileResult);
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        ORK_DECODE_DOUBLE(aDecoder, timestamp);
         ORK_DECODE_DOUBLE(aDecoder, timestamp);
         ORK_DECODE_OBJ_CLASS(aDecoder, fileResult, ORKFileResult);
     }
@@ -64,6 +66,7 @@
     __typeof(self) castObject = object;
     return (isParentSame &&
             (self.timestamp == castObject.timestamp) &&
+            (self.elapsedTime == castObject.elapsedTime) &&
             ORKEqualObjects(self.fileResult, castObject.fileResult)) ;
 }
 
@@ -75,6 +78,7 @@
     ORKReactionTimeResult *result = [super copyWithZone:zone];
     result.fileResult = [self.fileResult copy];
     result.timestamp = self.timestamp;
+    result.elapsedTime = self.elapsedTime;
     return result;
 }
 
