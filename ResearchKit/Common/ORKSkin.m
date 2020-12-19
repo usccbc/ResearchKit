@@ -165,7 +165,8 @@ static NSMutableDictionary *colors() {
                     ORKNavigationContainerShadowColorKey: [UIColor blackColor],
                     ORKProgressLabelColorKey: [UIColor colorWithRed:142.0/255.0 green:142.0/255.0 blue:142.0/255.0 alpha:1.0],
                     ORKiPadBackgroundViewColorKey: [UIColor colorWithRed:249.0 / 255.0 green:249.0 / 255.0 blue:251.0 / 255.0 alpha:1.0],
-                    ORKTopContentImageViewBackgroundColorKey: (ORKRGB(0xD7D7D7)),
+                    ORKTopContentImageViewBackgroundColorKey: [UIColor colorWithRed:68.0 / 255.0 green:70.0 / 255.0 blue:85.0 / 255.0 alpha:1.0],
+//                    ORKTopContentImageViewBackgroundColorKey: (ORKRGB(0xD7D7D7)),
                     ORKBulletItemTextColorKey: [UIColor colorWithRed:0.56 green:0.56 blue:0.58 alpha:1.0]
                     } mutableCopy];
     });
