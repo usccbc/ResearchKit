@@ -260,23 +260,35 @@
 - (void)setButtonItem:(ORKBorderedButton *)buttonItem {
     _buttonItem = buttonItem;
     if (buttonItem) {
-        buttonItem.contentEdgeInsets = (UIEdgeInsets){.top = 2, .bottom = 2, .left = 8, .right = 8};
+        buttonItem.frame = CGRectMake(0, 0, 200, 50);
+
         buttonItem.translatesAutoresizingMaskIntoConstraints = NO;
         [_continueView addSubview:buttonItem];
-        [[NSLayoutConstraint constraintWithItem:_buttonItem
-                                      attribute:NSLayoutAttributeCenterX
-                                      relatedBy:NSLayoutRelationEqual
-                                         toItem:_continueView
-                                      attribute:NSLayoutAttributeCenterX
-                                     multiplier:1.0
-                                       constant:0.0] setActive:YES];
+
         [[NSLayoutConstraint constraintWithItem:_buttonItem
                                       attribute:NSLayoutAttributeCenterY
                                       relatedBy:NSLayoutRelationEqual
                                          toItem:_continueView
                                       attribute:NSLayoutAttributeCenterY
                                      multiplier:1.0
-                                       constant:0.0] setActive:YES];
+                                       constant:-10.0] setActive:YES];
+
+        [[NSLayoutConstraint constraintWithItem:_buttonItem
+                                      attribute:NSLayoutAttributeWidth
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:_continueView
+                                      attribute:NSLayoutAttributeWidth
+                                     multiplier:1.0
+                                       constant: 0] setActive:YES];
+
+        [[NSLayoutConstraint constraintWithItem:_buttonItem
+                                      attribute:NSLayoutAttributeHeight
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:nil
+                                      attribute:NSLayoutAttributeNotAnAttribute
+                                     multiplier:1.0
+                                       constant: 50] setActive:YES];
+
     }
     else {
         [_buttonItem removeFromSuperview];
